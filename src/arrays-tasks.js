@@ -416,6 +416,7 @@ console.log(createChunks([1, 2, 3, 4, 5, 6, 7], 3));
  *    generateOdds(5) => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
+  if (len === 0) return [];
   return Array.from({ length: len }, (item, i) => 1 + i * 2);
 }
 
@@ -433,9 +434,11 @@ console.log(generateOdds(5));
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(/* arr, indices */) {
-  throw new Error('Not implemented');
+function getElementByIndices(arr, indices) {
+  return indices.reduce((subArr, index) => subArr[index], arr);
 }
+
+console.log(getElementByIndices(['one', 'two', 'three'], [2]));
 
 /**
  * Returns the number of all falsy values in the specified array.
@@ -449,9 +452,23 @@ function getElementByIndices(/* arr, indices */) {
  *  getFalsyValuesCount([ -1, 'false', null, 0 ]) => 2
  *  getFalsyValuesCount([ null, undefined, NaN, false, 0, '' ]) => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  const falsyValues = [false, null, 0, '', undefined, NaN];
+  let count = 0;
+
+  if (!arr.length) return 0;
+
+  arr.map((item) => {
+    if (falsyValues.includes(item)) {
+      count += 1;
+    }
+    return count;
+  });
+
+  return count;
 }
+
+console.log(getFalsyValuesCount([-1, 'false', null, 0]));
 
 /**
  * Creates an identity matrix of the specified size.
