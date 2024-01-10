@@ -236,9 +236,12 @@ console.log(getHead([1, 3, 4, 5], 2));
  *    getTail([ 'a', 'b', 'c', 'd'], 3) => [ 'b', 'c', 'd' ]
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
-function getTail(/* arr, n */) {
-  throw new Error('Not implemented');
+function getTail(arr, n) {
+  if (n === 0) return [];
+  return arr.splice(-n);
 }
+
+console.log(getTail(['a', 'b', 'c', 'd'], 0));
 
 /**
  * Returns the doubled array - elements of the specified array
