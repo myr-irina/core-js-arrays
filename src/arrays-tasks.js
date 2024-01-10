@@ -394,9 +394,14 @@ console.log(
  *    createChunks(['a', 'b', 'c', 'd', 'e'], 2) => [['a', 'b'], ['c', 'd'], ['e']]
  *    createChunks([10, 20, 30, 40, 50], 1) => [[10], [20], [30], [40], [50]]
  */
-function createChunks(/* arr, chunkSize */) {
-  throw new Error('Not implemented');
+function createChunks(arr, chunkSize) {
+  return arr.reduce((acc, _, i) => {
+    if (i % chunkSize === 0) acc.push(arr.slice(i, i + chunkSize));
+    return acc;
+  }, []);
 }
+
+console.log(createChunks([1, 2, 3, 4, 5, 6, 7], 3));
 
 /**
  * Generates an array of odd numbers of the specified length.
