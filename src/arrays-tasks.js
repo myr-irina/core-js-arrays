@@ -184,9 +184,11 @@ console.log(isSameLength(['orange', 'banana', 'cherry']));
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
+function isValueEqualsIndex(arr) {
+  return arr.some((item, i) => item === i);
 }
+
+console.log(isValueEqualsIndex([0, 1, 2, 3, 4]));
 
 /**
  * Inserts the item into specified array at specified index.
