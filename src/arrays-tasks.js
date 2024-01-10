@@ -290,9 +290,11 @@ console.log(toStringList([0, false, 'cat', NaN, true, '']));
  *   distinct([ 1, 1, 2, 2, 3, 3, 4, 4]) => [ 1, 2, 3, 4]
  *   distinct([]) => []
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  return [...new Set(arr)];
 }
+
+console.log(distinct([1, 2, 3, 3, 2, 1]));
 
 /**
  * Creates an n-dimensional array and fills it with zeros.
