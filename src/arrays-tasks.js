@@ -255,9 +255,11 @@ console.log(getTail(['a', 'b', 'c', 'd'], 0));
  *    doubleArray([0, 1, 2, 3, 4, 5]) => [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5]
  *    doubleArray([]) => []
  */
-function doubleArray(/* arr */) {
-  throw new Error('Not implemented');
+function doubleArray(arr) {
+  return arr.concat(arr);
 }
+
+console.log(doubleArray(['Ace', 10, true]));
 
 /**
  * Concatenates all elements from specified array into single string with ',' delimiter.
