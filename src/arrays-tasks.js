@@ -272,9 +272,11 @@ console.log(doubleArray(['Ace', 10, true]));
  *    toStringList([1, 2, 3, 4, 5]) => '1,2,3,4,5'
  *    toStringList(['rock', 'paper', 'scissors']) => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  return arr.join(',');
 }
+
+console.log(toStringList([0, false, 'cat', NaN, true, '']));
 
 /**
  * Returns array containing only unique values from the specified array.
