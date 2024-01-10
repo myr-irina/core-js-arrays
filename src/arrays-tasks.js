@@ -417,7 +417,7 @@ console.log(createChunks([1, 2, 3, 4, 5, 6, 7], 3));
  */
 function generateOdds(len) {
   if (len === 0) return [];
-  return Array.from({ length: len }, (item, i) => 1 + i * 2);
+  return Array.from({ length: len }, (_, i) => 1 + i * 2);
 }
 
 console.log(generateOdds(5));
@@ -488,9 +488,13 @@ console.log(getFalsyValuesCount([-1, 'false', null, 0]));
  *                              [0,0,0,1,0],
  *                              [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  return Array.from({ length: n }, (_, i) =>
+    Array.from({ length: n }, (item, j) => (i === j ? 1 : 0))
+  );
 }
+
+console.log(getIdentityMatrix(5));
 
 /**
  * Returns an array containing indices of odd elements in the input array.
