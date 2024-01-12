@@ -690,9 +690,25 @@ console.log(sortDigitNamesByNumericOrder(['nine', 'one']));
  *   swapHeadAndTail([]) => []
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const len = arr.length;
+  if (len <= 1) {
+    return arr;
+  }
+
+  const middleIndex = Math.floor(len / 2);
+  const head = arr.slice(0, middleIndex);
+  const tail = arr.slice(-middleIndex);
+
+  if (len % 2 !== 0) {
+    return tail.concat(arr[middleIndex], head);
+  }
+
+  return tail.concat(head);
 }
+
+console.log(swapHeadAndTail([1, 2, 3, 4, 5, 6, 7, 8]));
+console.log(swapHeadAndTail([1, 2, 3]));
 
 module.exports = {
   getIntervalArray,
