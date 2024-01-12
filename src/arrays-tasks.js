@@ -648,9 +648,28 @@ console.log(shiftArray([10, 20, 30, 40, 50], -3));
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const matchArr = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+
+  const indexArr = arr
+    .map((item) => matchArr.indexOf(item))
+    .sort((a, b) => a - b);
+
+  return indexArr.map((index) => matchArr[index]);
 }
+
+console.log(sortDigitNamesByNumericOrder(['nine', 'one']));
 
 /**
  * Swaps the head and tail of the specified array:
